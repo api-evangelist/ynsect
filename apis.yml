@@ -1,23 +1,114 @@
 aid: ynsect
 name: Ynsect
-description: 'Ynsect is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Ÿnsect (Ÿnsect SAS) was a French agri-technology company, founded in Évry, Essonne on
+  4 October 2011 by Antoine Hubert, Jean-Gabriel Levon, Fabrice Berro and Alexis Angot,
+  that farmed Tenebrio molitor mealworms and Alphitobius diaperinus buffalo larvae in
+  automated vertical farms and processed them into high-protein ingredients for
+  aquaculture and animal feed, the Spryng pet-food line, food-grade ingredients for human
+  nutrition, and the Ynfrass organic fertiliser made from insect frass. It was for a time
+  the best-funded insect-protein company in the world, raising roughly €600 million over
+  fourteen years, including a €372 million Series C in 2020 and a further €160 million in
+  early 2023, and it operated sites at Dole and Damparis in the Jura while building the
+  Ynfarm vertical farm at Poulainville near Amiens. The economics never closed: Ÿnsect
+  requested safeguard proceedings on 26 September 2024, was placed in judicial
+  reorganisation on 3 March 2025, and — unable to fund a continuation plan within the
+  observation period — was placed in judicial liquidation on 1 December 2025. The Damparis
+  site was taken over in 2025 by Keprea, a separate company founded by Ÿnsect alumni, to
+  make fertiliser from insect frass; Keprea is not a successor to Ÿnsect and its surfaces
+  are not part of this profile. Ÿnsect was an industrial producer of physical goods and
+  never operated a developer program, public API, SDK, webhook surface or machine-readable
+  specification of any kind. Its host ynsect.com is still registered to the company but the
+  web origin has been switched off — TCP 80 and 443 refuse connections — and ynsect.fr is a
+  bare OVH redirect to that dead host, so no pointer to a live company website is wired.
+  This profile is retained as a historical record; there is no API surface to enrich.
 url: https://raw.githubusercontent.com/api-evangelist/ynsect/refs/heads/main/apis.yml
+x-harvest-source-url: https://forgeglobal.com/ynsect_stock/
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
-x-tier-reason: harvest
+x-tier-reason: defunct-no-api-surface
+x-status: defunct
+x-founded: '2011-10-04'
+x-shutdown-date: '2025-12-01'
+x-shutdown-note: >-
+  Placed in judicial liquidation (liquidation judiciaire) on 1 December 2025 after
+  safeguard proceedings opened 26 September 2024 and judicial reorganisation opened
+  3 March 2025. The court found the company could not raise the funds needed to finance
+  its continuation plan within the deadlines, despite the strength of its technology
+  portfolio and its new operational model.
+x-domain-status: dark-origin
+x-domain-note: >-
+  ynsect.com remains registered to the company at OVH (created 2011-03-05, registry expiry
+  2027-03-05, record updated 2026-01-29) and still resolves to 51.75.15.14, but the origin
+  is decommissioned: TCP 80 and TCP 443 do not accept connections, so every request to
+  ynsect.com and www.ynsect.com fails at connect with no HTTP status. ynsect.fr answers
+  HTTP 301 to http://www.ynsect.com/ on every path — a bare OVH domain redirect to the
+  dead host. No API, docs, developer, portal, app or console subdomain has ever been
+  delegated (all NXDOMAIN), and no GitHub organization exists. See
+  well-known/ynsect-well-known.yml for the full 125-probe record. The domain is NOT parked
+  or re-registered by a third party, so there is no soft-200 catch-all to guard against —
+  unlike all/domio/.
 specificationVersion: '0.20'
 created: '2026-09-04'
 modified: '2026-09-04'
 tags:
 - Company
+- Defunct
+- Agriculture
+- AgTech
+- Food
+- Insect-Protein
+- Animal-Feed
+- Fertilizer
+- Biotechnology
+- Manufacturing
+- France
+tags_raw:
+- Company
+- Defunct
+- Agriculture
+- AgTech
+- Food
+- Insect Protein
+- Animal Feed
+- Fertilizer
+- Biotechnology
+- Manufacturing
+- France
 apis: []
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
-common:
-- type: Website
-  url: https://forgeglobal.com/ynsect_stock/
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Ÿnsect was placed in judicial liquidation on 1 December 2025 and its web origin has
+    since been switched off — ynsect.com still resolves to 51.75.15.14 but refuses
+    connections on ports 80 and 443, so all 100 probes against ynsect.com and
+    www.ynsect.com failed at connect with no HTTP status, while ynsect.fr returns a blanket
+    301 to that same dead host on all 25 paths probed.
+  evidence:
+  - url: https://ynsect.com/
+    status: 0
+  - url: https://www.ynsect.com/
+    status: 0
+  - url: https://ynsect.com/openapi.json
+    status: 0
+  - url: https://ynsect.com/.well-known/agent-card.json
+    status: 0
+  - url: http://ynsect.fr/openapi.json
+    status: 301
+  - url: https://github.com/ynsect
+    status: 404
+  - url: https://forgeglobal.com/ynsect_stock/
+    status: 403
+  checked: '2026-09-04'
+x-enrichment:
+  date: '2026-09-04'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v3

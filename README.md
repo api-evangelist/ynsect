@@ -64,5 +64,25 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Ynsect is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/ynsect_stock/
+Ÿnsect (Ÿnsect SAS) was a French agri-technology company founded in Évry, Essonne on 4 October 2011
+that farmed mealworms and buffalo larvae in automated vertical farms and processed them into protein
+ingredients for aquaculture and animal feed, the Spryng pet-food line, and the Ynfrass organic
+fertiliser. It raised roughly €600 million over fourteen years and operated sites at Dole and
+Damparis in the Jura while building the Ynfarm vertical farm at Poulainville near Amiens. It entered
+safeguard proceedings on 26 September 2024, judicial reorganisation on 3 March 2025, and was placed
+in **judicial liquidation on 1 December 2025**.
+
+**There is no API surface to profile.** Ÿnsect was an industrial producer of physical goods and never
+operated a developer program, public API, SDK, webhook surface or machine-readable specification.
+Its host `ynsect.com` is still registered to the company but the web origin has been switched off —
+TCP 80 and 443 refuse connections — and `ynsect.fr` is a bare OVH redirect to that dead host. No API,
+docs, developer, portal or console subdomain has ever been delegated, and no GitHub organization
+exists. The full 125-probe record is in [`well-known/ynsect-well-known.yml`](well-known/ynsect-well-known.yml).
+
+`keprea.com` is live but belongs to **Keprea**, a separate company founded by Ÿnsect alumni that
+acquired the Damparis site out of the proceedings. It is not a successor to Ÿnsect and nothing served
+from it is attributed to this profile.
+
+This profile is retained as a historical record.
+
+- Harvest source: https://forgeglobal.com/ynsect_stock/
