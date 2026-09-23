@@ -2,271 +2,238 @@ generated: '2026-09-04'
 method: probed
 source: https://ynsect.com/
 name: Ynsect well-known + contract discovery probe
-description: >-
-  Negative probe record for Ynsect (Ÿnsect SAS). The company was placed in judicial
-  liquidation by the Évry commercial court on 1 December 2025. Its domain ynsect.com is
-  still registered to the company (OVH, created 2011-03-05, registry expiry 2027-03-05,
-  record last updated 2026-01-29) and still resolves to 51.75.15.14 in OVH's network, but
-  the origin has been decommissioned: TCP 80 and TCP 443 do not accept connections, so
-  every HTTP and HTTPS request to ynsect.com and www.ynsect.com fails at connect with no
-  status code at all. The secondary domain ynsect.fr is a bare OVH domain-redirect that
-  answers HTTP 301 to http://www.ynsect.com/ for EVERY path, which is itself dead, so it
-  carries no content either. NO document was retrieved on any path. No WellKnown,
-  SecurityTxt, AgentCard, LLMsTxt, APIsJSON or OpenAPI pointer is emitted from this probe,
-  and none should ever be emitted from it in a later round.
-
+description: 'Negative probe record for Ynsect (Ÿnsect SAS). The company was placed in judicial liquidation
+  by the Évry commercial court on 1 December 2025. Its domain ynsect.com is still registered to the company
+  (OVH, created 2011-03-05, registry expiry 2027-03-05, record last updated 2026-01-29) and still resolves
+  to 51.75.15.14 in OVH''s network, but the origin has been decommissioned: TCP 80 and TCP 443 do not
+  accept connections, so every HTTP and HTTPS request to ynsect.com and www.ynsect.com fails at connect
+  with no status code at all. The secondary domain ynsect.fr is a bare OVH domain-redirect that answers
+  HTTP 301 to http://www.ynsect.com/ for EVERY path, which is itself dead, so it carries no content either.
+  NO document was retrieved on any path. No WellKnown, SecurityTxt, AgentCard, LLMsTxt, APIsJSON or OpenAPI
+  pointer is emitted from this probe, and none should ever be emitted from it in a later round.'
 host_status:
-  - host: ynsect.com
-    controlled_by_provider: true
-    disposition: dark-origin
-    registrar: OVH sas
-    domain_created: '2011-03-05'
-    domain_expires: '2027-03-05'
-    domain_updated: '2026-01-29'
-    registrant_country: FR
-    a_record: 51.75.15.14
-    nameservers:
-      - dns200.anycast.me
-      - ns200.anycast.me
-    mx: ynsect-com.mail.protection.outlook.com
-    dnssec: true
-    tcp_80: refused-or-filtered
-    tcp_443: refused-or-filtered
-    note: >-
-      DNS is intact and the registration is still the company's — the domain was not
-      dropped or re-registered by a third party, unlike the parked-lander case in
-      all/domio/. The web origin is simply gone. Every curl returns exit-level connection
-      failure (recorded below as status 0), not an HTTP response, so there is no soft-404
-      and no catch-all 200 to guard against on this host.
-  - host: ynsect.fr
-    controlled_by_provider: true
-    disposition: blanket-redirect
-    registrar: OVH
-    domain_created: '2011-03-05'
-    domain_expires: '2028-03-26'
-    a_record: 213.186.33.87
-    nameservers:
-      - dns18.ovh.net
-      - ns18.ovh.net
-    tcp_80: open
-    tcp_443: refused-or-filtered
-    note: >-
-      HTTP on this host answers 301 -> http://www.ynsect.com/ for every path with an
-      identical 230-byte Apache "301 Moved Permanently" body. HTTPS does not connect. The
-      redirect target is the dead origin above, so nothing is reachable through it.
-
+- host: ynsect.com
+  controlled_by_provider: true
+  disposition: dark-origin
+  registrar: OVH sas
+  domain_created: '2011-03-05'
+  domain_expires: '2027-03-05'
+  domain_updated: '2026-01-29'
+  registrant_country: FR
+  a_record: 51.75.15.14
+  nameservers:
+  - dns200.anycast.me
+  - ns200.anycast.me
+  mx: ynsect-com.mail.protection.outlook.com
+  dnssec: true
+  tcp_80: refused-or-filtered
+  tcp_443: refused-or-filtered
+  note: DNS is intact and the registration is still the company's — the domain was not dropped or re-registered
+    by a third party, unlike the parked-lander case in all/domio/. The web origin is simply gone. Every
+    curl returns exit-level connection failure (recorded below as status 0), not an HTTP response, so
+    there is no soft-404 and no catch-all 200 to guard against on this host.
+- host: ynsect.fr
+  controlled_by_provider: true
+  disposition: blanket-redirect
+  registrar: OVH
+  domain_created: '2011-03-05'
+  domain_expires: '2028-03-26'
+  a_record: 213.186.33.87
+  nameservers:
+  - dns18.ovh.net
+  - ns18.ovh.net
+  tcp_80: open
+  tcp_443: refused-or-filtered
+  note: HTTP on this host answers 301 -> http://www.ynsect.com/ for every path with an identical 230-byte
+    Apache "301 Moved Permanently" body. HTTPS does not connect. The redirect target is the dead origin
+    above, so nothing is reachable through it.
 path_echo_control: passed
-path_echo_note: >-
-  The negative control /.well-known/ynsect-negative-control-7f3ab91c.json — a path that
-  cannot exist — returned exactly what every other path returned on each host (connection
-  failure on ynsect.com/www.ynsect.com, a blanket 301 on ynsect.fr). No host echoed a
-  document back, so no hit on any host could be a path-echo false positive. There were no
-  hits to discard.
-
+path_echo_note: The negative control /.well-known/ynsect-negative-control-7f3ab91c.json — a path that
+  cannot exist — returned exactly what every other path returned on each host (connection failure on ynsect.com/www.ynsect.com,
+  a blanket 301 on ynsect.fr). No host echoed a document back, so no hit on any host could be a path-echo
+  false positive. There were no hits to discard.
 hit_count: 0
 soft_200_control: not-applicable
-soft_200_note: >-
-  No host returned any 2xx on any path, so the soft-200 catch-all failure mode does not
-  arise here. 125 probes: 100 connection failures, 25 blanket 301s, 0 documents.
-
+soft_200_note: 'No host returned any 2xx on any path, so the soft-200 catch-all failure mode does not
+  arise here. 125 probes: 100 connection failures, 25 blanket 301s, 0 documents.'
 probe_summary:
   probes_total: 125
   status_0_connection_failure: 100
   status_301_blanket_redirect: 25
   status_2xx: 0
   documents_saved: 0
-
 hosts:
-  - host: https://ynsect.com
-    documents:
-      - path: /.well-known/security.txt
-        status: 0
-        file: null
-      - path: /.well-known/openid-configuration
-        status: 0
-        file: null
-      - path: /.well-known/oauth-authorization-server
-        status: 0
-        file: null
-      - path: /.well-known/oauth-protected-resource
-        status: 0
-        file: null
-      - path: /.well-known/api-catalog
-        status: 0
-        file: null
-      - path: /.well-known/api-catalog.json
-        status: 0
-        file: null
-      - path: /.well-known/ai-plugin.json
-        status: 0
-        file: null
-      - path: /.well-known/ucp.json
-        status: 0
-        file: null
-      - path: /.well-known/acp.json
-        status: 0
-        file: null
-      - path: /.well-known/aauth-resource.json
-        status: 0
-        file: null
-      - path: /.well-known/apis.json
-        status: 0
-        file: null
-      - path: /.well-known/agent-card.json
-        status: 0
-        file: null
-      - path: /.well-known/agent.json
-        status: 0
-        file: null
-      - path: /apis.json
-        status: 0
-        file: null
-      - path: /apis.yml
-        status: 0
-        file: null
-      - path: /openapi.json
-        status: 0
-        file: null
-      - path: /openapi.yaml
-        status: 0
-        file: null
-      - path: /swagger.json
-        status: 0
-        file: null
-      - path: /v1/openapi.json
-        status: 0
-        file: null
-      - path: /api-docs
-        status: 0
-        file: null
-      - path: /docs
-        status: 0
-        file: null
-      - path: /redoc
-        status: 0
-        file: null
-      - path: /graphql
-        status: 0
-        file: null
-      - path: /llms.txt
-        status: 0
-        file: null
-  - host: https://www.ynsect.com
-    documents:
-      - path: /.well-known/security.txt
-        status: 0
-        file: null
-      - path: /.well-known/agent-card.json
-        status: 0
-        file: null
-      - path: /.well-known/agent.json
-        status: 0
-        file: null
-      - path: /.well-known/apis.json
-        status: 0
-        file: null
-      - path: /apis.json
-        status: 0
-        file: null
-      - path: /openapi.json
-        status: 0
-        file: null
-      - path: /llms.txt
-        status: 0
-        file: null
-  - host: http://www.ynsect.com
-    documents:
-      - path: /
-        status: 0
-        file: null
-      - path: /.well-known/security.txt
-        status: 0
-        file: null
-      - path: /openapi.json
-        status: 0
-        file: null
-      - path: /llms.txt
-        status: 0
-        file: null
-  - host: http://ynsect.fr
-    documents:
-      - path: /.well-known/security.txt
-        status: 301
-        file: null
-        note: 301 -> http://www.ynsect.com/ (dead origin); 230-byte Apache redirect body
-      - path: /.well-known/agent-card.json
-        status: 301
-        file: null
-        note: 301 -> http://www.ynsect.com/ (dead origin)
-      - path: /.well-known/agent.json
-        status: 301
-        file: null
-        note: 301 -> http://www.ynsect.com/ (dead origin)
-      - path: /.well-known/apis.json
-        status: 301
-        file: null
-        note: 301 -> http://www.ynsect.com/ (dead origin)
-      - path: /apis.json
-        status: 301
-        file: null
-        note: 301 -> http://www.ynsect.com/ (dead origin)
-      - path: /openapi.json
-        status: 301
-        file: null
-        note: 301 -> http://www.ynsect.com/ (dead origin)
-      - path: /llms.txt
-        status: 301
-        file: null
-        note: 301 -> http://www.ynsect.com/ (dead origin)
-      - path: /graphql
-        status: 301
-        file: null
-        note: 301 -> http://www.ynsect.com/ (dead origin)
-  - host: https://ynsect.fr
-    documents:
-      - path: /.well-known/security.txt
-        status: 0
-        file: null
-      - path: /openapi.json
-        status: 0
-        file: null
-      - path: /llms.txt
-        status: 0
-        file: null
-
+- host: https://ynsect.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 0
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 0
+    file: null
+  - path: /.well-known/api-catalog
+    status: 0
+    file: null
+  - path: /.well-known/api-catalog.json
+    status: 0
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 0
+    file: null
+  - path: /.well-known/ucp.json
+    status: 0
+    file: null
+  - path: /.well-known/acp.json
+    status: 0
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 0
+    file: null
+  - path: /.well-known/apis.json
+    status: 0
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+  - path: /apis.json
+    status: 0
+    file: null
+  - path: /apis.yml
+    status: 0
+    file: null
+  - path: /openapi.json
+    status: 0
+    file: null
+  - path: /openapi.yaml
+    status: 0
+    file: null
+  - path: /swagger.json
+    status: 0
+    file: null
+  - path: /v1/openapi.json
+    status: 0
+    file: null
+  - path: /api-docs
+    status: 0
+    file: null
+  - path: /docs
+    status: 0
+    file: null
+  - path: /redoc
+    status: 0
+    file: null
+  - path: /graphql
+    status: 0
+    file: null
+  - path: /llms.txt
+    status: 0
+    file: null
+- host: https://www.ynsect.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+  - path: /.well-known/agent.json
+    status: 0
+    file: null
+  - path: /.well-known/apis.json
+    status: 0
+    file: null
+  - path: /apis.json
+    status: 0
+    file: null
+  - path: /openapi.json
+    status: 0
+    file: null
+  - path: /llms.txt
+    status: 0
+    file: null
+  - path: /
+    status: 0
+    file: null
+- host: http://ynsect.fr
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    file: null
+    note: 301 -> http://www.ynsect.com/ (dead origin); 230-byte Apache redirect body
+  - path: /.well-known/agent-card.json
+    status: 301
+    file: null
+    note: 301 -> http://www.ynsect.com/ (dead origin)
+  - path: /.well-known/agent.json
+    status: 301
+    file: null
+    note: 301 -> http://www.ynsect.com/ (dead origin)
+  - path: /.well-known/apis.json
+    status: 301
+    file: null
+    note: 301 -> http://www.ynsect.com/ (dead origin)
+  - path: /apis.json
+    status: 301
+    file: null
+    note: 301 -> http://www.ynsect.com/ (dead origin)
+  - path: /openapi.json
+    status: 301
+    file: null
+    note: 301 -> http://www.ynsect.com/ (dead origin)
+  - path: /llms.txt
+    status: 301
+    file: null
+    note: 301 -> http://www.ynsect.com/ (dead origin)
+  - path: /graphql
+    status: 301
+    file: null
+    note: 301 -> http://www.ynsect.com/ (dead origin)
+  - path: /.well-known/security.txt
+    status: 0
+    file: null
+  - path: /openapi.json
+    status: 0
+    file: null
+  - path: /llms.txt
+    status: 0
+    file: null
 other_surfaces_probed:
-  - surface: DNS for API/docs/console subdomains
-    hosts:
-      - api.ynsect.com
-      - app.ynsect.com
-      - docs.ynsect.com
-      - developer.ynsect.com
-      - portal.ynsect.com
-      - my.ynsect.com
-      - shop.ynsect.com
-    result: NXDOMAIN on all seven — no API, docs, console or portal host has ever been delegated
-  - surface: GitHub organization
-    url: https://github.com/ynsect
-    status: 404
-    result: no GitHub organization exists under this name
-  - surface: Internet Archive CDX
-    url: http://web.archive.org/cdx/search/cdx?url=ynsect.com*
-    status: 200
-    result: >-
-      archive.org returned its "Internet Archive services are temporarily offline" page
-      rather than CDX data during this pass, so the historical path inventory could not be
-      walked. This is a gap in OUR probe, not evidence about the provider, and is recorded
-      here rather than being reported as an absence.
-
-ownership_note: >-
-  keprea.com is live and was NOT probed as an Ynsect surface. Keprea is a separate legal
-  entity founded by Ÿnsect alumni (including co-founder Antoine Hubert) that acquired the
-  Damparis/Dole pilot site out of the proceedings in 2025 to make insect-frass fertiliser.
-  It is a different company, not a successor that inherited Ÿnsect's web presence, so
-  nothing served from keprea.com may be attributed to Ÿnsect (STEP 0c ownership rule).
-
-conclusion: >-
-  Ÿnsect published no OpenAPI, AsyncAPI, GraphQL SDL, MCP server, A2A agent card,
-  apis.json, llms.txt or any other machine-readable contract, and no developer program,
-  SDK or portal ever existed to publish one from. The company is liquidated and its web
-  origin is switched off. There is no API surface to enrich, now or in a later round.
+- surface: DNS for API/docs/console subdomains
+  hosts:
+  - api.ynsect.com
+  - app.ynsect.com
+  - docs.ynsect.com
+  - developer.ynsect.com
+  - portal.ynsect.com
+  - my.ynsect.com
+  - shop.ynsect.com
+  result: NXDOMAIN on all seven — no API, docs, console or portal host has ever been delegated
+- surface: GitHub organization
+  url: https://github.com/ynsect
+  status: 404
+  result: no GitHub organization exists under this name
+- surface: Internet Archive CDX
+  url: http://web.archive.org/cdx/search/cdx?url=ynsect.com*
+  status: 200
+  result: archive.org returned its "Internet Archive services are temporarily offline" page rather than
+    CDX data during this pass, so the historical path inventory could not be walked. This is a gap in
+    OUR probe, not evidence about the provider, and is recorded here rather than being reported as an
+    absence.
+ownership_note: keprea.com is live and was NOT probed as an Ynsect surface. Keprea is a separate legal
+  entity founded by Ÿnsect alumni (including co-founder Antoine Hubert) that acquired the Damparis/Dole
+  pilot site out of the proceedings in 2025 to make insect-frass fertiliser. It is a different company,
+  not a successor that inherited Ÿnsect's web presence, so nothing served from keprea.com may be attributed
+  to Ÿnsect (STEP 0c ownership rule).
+conclusion: Ÿnsect published no OpenAPI, AsyncAPI, GraphQL SDL, MCP server, A2A agent card, apis.json,
+  llms.txt or any other machine-readable contract, and no developer program, SDK or portal ever existed
+  to publish one from. The company is liquidated and its web origin is switched off. There is no API surface
+  to enrich, now or in a later round.
