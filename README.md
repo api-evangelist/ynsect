@@ -64,25 +64,28 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Ÿnsect (Ÿnsect SAS) was a French agri-technology company founded in Évry, Essonne on 4 October 2011
-that farmed mealworms and buffalo larvae in automated vertical farms and processed them into protein
-ingredients for aquaculture and animal feed, the Spryng pet-food line, and the Ynfrass organic
-fertiliser. It raised roughly €600 million over fourteen years and operated sites at Dole and
-Damparis in the Jura while building the Ynfarm vertical farm at Poulainville near Amiens. It entered
-safeguard proceedings on 26 September 2024, judicial reorganisation on 3 March 2025, and was placed
-in **judicial liquidation on 1 December 2025**.
+> **No longer operating.** This company or product has shut down, been discontinued, or been deprecated. This profile is kept as a historical record and is not maintained or rated.
 
-**There is no API surface to profile.** Ÿnsect was an industrial producer of physical goods and never
-operated a developer program, public API, SDK, webhook surface or machine-readable specification.
-Its host `ynsect.com` is still registered to the company but the web origin has been switched off —
-TCP 80 and 443 refuse connections — and `ynsect.fr` is a bare OVH redirect to that dead host. No API,
-docs, developer, portal or console subdomain has ever been delegated, and no GitHub organization
-exists. The full 125-probe record is in [`well-known/ynsect-well-known.yml`](well-known/ynsect-well-known.yml).
+Ÿnsect (Ÿnsect SAS) was a French agri-technology company, founded in Évry, Essonne on 4 October 2011 by Antoine Hubert, Jean-Gabriel Levon, Fabrice Berro and Alexis Angot, that farmed Tenebrio molitor mealworms and Alphitobius diaperinus buffalo larvae in automated vertical farms and processed them into high-protein ingredients for aquaculture and animal feed, the Spryng pet-food line, food-grade ingredients for human nutrition, and the Ynfrass organic fertiliser made from insect frass. It was for a time the best-funded insect-protein company in the world, raising roughly €600 million over fourteen years, including a €372 million Series C in 2020 and a further €160 million in early 2023, and it operated sites at Dole and Damparis in the Jura while building the Ynfarm vertical farm at Poulainville near Amiens. The economics never closed: Ÿnsect requested safeguard proceedings on 26 September 2024, was placed in judicial reorganisation on 3 March 2025, and — unable to fund a continuation plan within the observation period — was placed in judicial liquidation on 1 December 2025. The Damparis site was taken over in 2025 by Keprea, a separate company founded by Ÿnsect alumni, to make fertiliser from insect frass; Keprea is not a successor to Ÿnsect and its surfaces are not part of this profile. Ÿnsect was an industrial producer of physical goods and never operated a developer program, public API, SDK, webhook surface or machine-readable specification of any kind. Its host ynsect.com is still registered to the company but the web origin has been switched off — TCP 80 and 443 refuse connections — and ynsect.fr is a bare OVH redirect to that dead host, so no pointer to a live company website is wired. This profile is retained as a historical record; there is no API surface to enrich.
 
-`keprea.com` is live but belongs to **Keprea**, a separate company founded by Ÿnsect alumni that
-acquired the Damparis site out of the proceedings. It is not a successor to Ÿnsect and nothing served
-from it is attributed to this profile.
+**Areas:** Company · Defunct · Agriculture · AgTech · Food · Insect Protein · Animal Feed · Fertilizer · Biotechnology · Manufacturing · France
 
-This profile is retained as a historical record.
+## Ynsect on APIs.io (historical record)
 
-- Harvest source: https://forgeglobal.com/ynsect_stock/
+Everything profiled for Ynsect is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ynsect/](https://apis.io/providers/ynsect/)** — or go straight to one of the APIs or properties below.
+
+## API Evangelist rating
+
+**Not rated** — this company is recorded as no longer operating, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ynsect: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ynsect/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
